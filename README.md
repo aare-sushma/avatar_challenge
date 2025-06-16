@@ -14,18 +14,18 @@ Press enter in the docker terminal and we can see the arm drawing different shap
 
 ## Input Shape Definitions
 All shapes are defined in a JSON file located at /home/dev/dev_ws/src/avatar_challenge/config/shapes.json
-Each shape entry includes
-    type: One of "polygon", "arc", or "bspline"
-    start_pose: Defines the 3D plane for drawing, with:
-    position: [x, y, z] coordinates in meters
-    orientation_rpy: [roll, pitch, yaw] in radians
-    Shape-specific parameters:
-        For polygon: "vertices" – list of 2D [x, y] points
-        For arc: "center", "radius", "start_angle", "end_angle", "segments"
-        For bspline: "control_points", "degree", "num_points"
-To add new shapes:
-    Edit shapes.json
-    Add a new shape object to the "shapes" list following the format above. Save and rerun the launch file inside the container.
+Each shape entry includes  
+    type: One of "polygon", "arc", or "bspline"  
+    start_pose: Defines the 3D plane for drawing, with:  
+    position: [x, y, z] coordinates in meters  
+    orientation_rpy: [roll, pitch, yaw] in radians  
+    Shape-specific parameters:  
+        For polygon: "vertices" – list of 2D [x, y] points  
+        For arc: "center", "radius", "start_angle", "end_angle", "segments"  
+        For bspline: "control_points", "degree", "num_points"  
+To add new shapes:  
+    Edit shapes.json  
+    Add a new shape object to the "shapes" list following the format above. Save and rerun the launch file inside the container.  
 
 ## Approch
 The project uses MoveIt 2 and RViz to control a simulated xArm7 for drawing 2D shapes projected onto 3D planes in space. The idea is to define shapes in a 2D coordinate system and then transform them onto a plane using a 3D start_pose with position and orientation. 
