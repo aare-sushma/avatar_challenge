@@ -1,18 +1,18 @@
 # avatar_challenge
 
-# Docker Image
+## Docker Image
 To run the system using Docker and access the graphical desktop:
    docker build -t aare-sushma/avatar_challenge. Run the container using a unique name and RDP access: docker run --name xarm-challenge-v2 --platform linux/amd64 -p 5567:3389 aare-sushma/avatar_challenge. Use Remmina Connect to: localhost:5567. 
    Login credentials:
     Username: dev
     Password: as provided by Avatar Robotics
 
-# Developing
-The ROS 2 package is located at: /home/dev/dev_ws/src/avatar_challenge. To launch the system, open a terminal inside the Docker container and run: cd ~/dev_ws and ros2 launch avatar_challenge start.launch.py. This will open the RViz window and wait for user input.
+## Developing
+The ROS 2 package is located at: /home/dev/dev_ws/src/avatar_challenge. To launch the system, open a terminal inside the Docker container and run: cd ~/dev_ws, source install/setup.bash and ros2 launch avatar_challenge start.launch.py. This will open the RViz window and wait for user input.
 Add a MarkerArray display in RViz and the topic should be /visualization_marker_array. Uncheck the Motion Planning and Trajectory checkboxes in the Displays panel for a cleaner visualization.
 Press enter in the docker terminal and we can see the arm drawing different shapes on Rviz platform
 
-# Input Shape Definitions
+## Input Shape Definitions
 All shapes are defined in a JSON file located at /home/dev/dev_ws/src/avatar_challenge/config/shapes.json
 Each shape entry includes
     type: One of "polygon", "arc", or "bspline"
@@ -27,7 +27,7 @@ To add new shapes:
     Edit shapes.json
     Add a new shape object to the "shapes" list following the format above. Save and rerun the launch file inside the container.
 
-# Approch
+## Approch
 The project uses MoveIt 2 and RViz to control a simulated xArm7 for drawing 2D shapes projected onto 3D planes in space. The idea is to define shapes in a 2D coordinate system and then transform them onto a plane using a 3D start_pose with position and orientation. 
 The software supports multiple shape types—polygons, arcs, and B-splines—allowing for both sharp-edged and smooth paths. For polygons, linear interpolation is added between corners to smoothen transitions, while B-spline curves are generated using control points and degree-based basis functions. 
 RViz MarkerArrays are used to visualize the planned paths before execution. Cartesian path planning is used for trajectory generation, with velocity and acceleration scaling to ensure smoother and more realistic motion. The whole system is easy to customize through a JSON file and works for any shape drawn on a flat surface in 3D space.
