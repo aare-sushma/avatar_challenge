@@ -2,14 +2,14 @@
 
 ## Docker Image
 To run the system using Docker and access the graphical desktop:
-   'docker build -t aare-sushma/avatar_challenge'. Run the container using name and RDP access: 'docker run --name xarm-challenge-v2 --platform linux/amd64 -p 5567:3389 aare-sushma/avatar_challenge'. Use Remmina Connect to: 'localhost:5567'. 
+   `docker build -t aare-sushma/avatar_challenge`. Run the container using name and RDP access: `docker run --name xarm-challenge-v2 --platform linux/amd64 -p 5567:3389 aare-sushma/avatar_challenge`. Use Remmina Connect to: `localhost:5567`. 
    Login credentials:
     Username: dev
     Password: as provided by Avatar Robotics
 
 ## Developing
-The ROS 2 package is located at: '/home/dev/dev_ws/src/avatar_challenge'. To launch the system, open a terminal inside the Docker container and run: 'cd ~/dev_ws' and 'ros2 launch avatar_challenge start.launch.py'. This will open the RViz window and wait for user input. If the launch file does noot work, 'source /opt/ros/humble/setup.bash', 'source ~/xarm_ws/install/setup.bash', 'source ~/dev_ws/install/setup.bash' and try again
-Add a MarkerArray display in RViz and the topic should be '/visualization_marker_array'. Uncheck the Motion Planning and Trajectory checkboxes in the Displays panel for a cleaner visualization.
+The ROS 2 package is located at: `/home/dev/dev_ws/src/avatar_challenge`. To launch the system, open a terminal inside the Docker container and run: `cd ~/dev_ws` and `ros2 launch avatar_challenge start.launch.py`. This will open the RViz window and wait for user input. If the launch file does noot work, `source /opt/ros/humble/setup.bash`, `source ~/xarm_ws/install/setup.bash`, `source ~/dev_ws/install/setup.bash` and try again
+Add a MarkerArray display in RViz and the topic should be `/visualization_marker_array`. Uncheck the Motion Planning and Trajectory checkboxes in the Displays panel for a cleaner visualization.
 Press enter in the docker terminal and we can see the arm drawing different shapes on Rviz platform
 
 ## Input Shape Definitions
